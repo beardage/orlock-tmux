@@ -6,11 +6,11 @@
 
 ## Install
 
-All instructions can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
+All instructions can be found at [orlocktheme.com/tmux](https://orlocktheme.com/tmux).
 
 ## Configuration
 
-Configuration and options can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
+Configuration and options can be found at [orlocktheme.com/tmux](https://orlocktheme.com/tmux).
 
 ## Features
 
@@ -37,7 +37,7 @@ FreeBSD compatibility is in development
 
 ## Team
 
-This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/dracula/tmux/graphs/contributors).
+This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/orlock/tmux/graphs/contributors).
 
 | [![Dane Williams](https://avatars2.githubusercontent.com/u/22798229?s=70&v=4",)](https://github.com/danerwilliams) | [![Ethan Edwards](https://avatars1.githubusercontent.com/u/60861925?s=70&v=4)](https://github.com/ethancedwards8) |
 | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -45,9 +45,9 @@ This theme is maintained by the following person(s) and a bunch of [awesome cont
 
 ## Community
 
-- [Twitter](https://twitter.com/draculatheme) - Best for getting updates about themes and new stuff.
-- [GitHub](https://github.com/dracula/dracula-theme/discussions) - Best for asking questions and discussing issues.
-- [Discord](https://draculatheme.com/discord-invite) - Best for hanging out with the community.
+- [Twitter](https://twitter.com/orlocktheme) - Best for getting updates about themes and new stuff.
+- [GitHub](https://github.com/orlock/orlock-theme/discussions) - Best for asking questions and discussing issues.
+- [Discord](https://orlocktheme.com/discord-invite) - Best for hanging out with the community.
 
 ## License
 
