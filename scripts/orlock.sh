@@ -7,37 +7,38 @@ source $current_dir/utils.sh
 
 main()
 {
-  datafile=/tmp/.dracula-tmux-data
+  datafile=/tmp/.orlock-tmux-data
 
   # set configuration option variables
-  show_fahrenheit=$(get_tmux_option "@dracula-show-fahrenheit" true)
-  show_location=$(get_tmux_option "@dracula-show-location" true)
-  fixed_location=$(get_tmux_option "@dracula-fixed-location")
-  show_powerline=$(get_tmux_option "@dracula-show-powerline" false)
-  show_flags=$(get_tmux_option "@dracula-show-flags" false)
-  show_left_icon=$(get_tmux_option "@dracula-show-left-icon" smiley)
-  show_left_icon_padding=$(get_tmux_option "@dracula-left-icon-padding" 1)
-  show_military=$(get_tmux_option "@dracula-military-time" false)
-  show_timezone=$(get_tmux_option "@dracula-show-timezone" true)
-  show_left_sep=$(get_tmux_option "@dracula-show-left-sep" )
-  show_right_sep=$(get_tmux_option "@dracula-show-right-sep" )
-  show_border_contrast=$(get_tmux_option "@dracula-border-contrast" false)
-  show_day_month=$(get_tmux_option "@dracula-day-month" false)
-  show_refresh=$(get_tmux_option "@dracula-refresh-rate" 5)
-  IFS=' ' read -r -a plugins <<< $(get_tmux_option "@dracula-plugins" "battery network weather")
+  show_fahrenheit=$(get_tmux_option "@orlock-show-fahrenheit" true)
+  show_location=$(get_tmux_option "@orlock-show-location" true)
+  fixed_location=$(get_tmux_option "@orlock-fixed-location")
+  show_powerline=$(get_tmux_option "@orlock-show-powerline" false)
+  show_flags=$(get_tmux_option "@orlock-show-flags" false)
+  show_left_icon=$(get_tmux_option "@orlock-show-left-icon" smiley)
+  show_left_icon_padding=$(get_tmux_option "@orlock-left-icon-padding" 1)
+  show_military=$(get_tmux_option "@orlock-military-time" false)
+  show_timezone=$(get_tmux_option "@orlock-show-timezone" true)
+  show_left_sep=$(get_tmux_option "@orlock-show-left-sep" )
+  show_right_sep=$(get_tmux_option "@orlock-show-right-sep" )
+  show_border_contrast=$(get_tmux_option "@orlock-border-contrast" false)
+  show_day_month=$(get_tmux_option "@orlock-day-month" false)
+  show_refresh=$(get_tmux_option "@orlock-refresh-rate" 5)
+  IFS=' ' read -r -a plugins <<< $(get_tmux_option "@orlock-plugins" "battery network weather")
 
-  # Dracula Color Pallette
-  white='#f8f8f2'
-  gray='#44475a'
-  dark_gray='#282a36'
-  light_purple='#bd93f9'
-  dark_purple='#6272a4'
-  cyan='#8be9fd'
-  green='#50fa7b'
-  orange='#ffb86c'
-  red='#ff5555'
-  pink='#ff79c6'
-  yellow='#f1fa8c'
+  # Orlock Color Pallette
+  white='#F8FAFC'
+  gray='#334155'
+  dark_gray='#111827'
+  light_purple='#C4B5FD'
+  dark_purple='#A78BFA'
+  cyan='#67E8F9'
+  bright_cyan='#A5F3FC'
+  green='#34D399'
+  orange='#F58E0B'
+  red='#EF4444'
+  pink='#F472B6'
+  yellow='#FDE047'
 
   # Handle left icon configuration
   case $show_left_icon in
@@ -128,43 +129,43 @@ main()
   for plugin in "${plugins[@]}"; do
 
     if [ $plugin = "git" ]; then
-      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "green dark_gray")
-        script="#($current_dir/git.sh)"     
+      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@orlock-git-colors" "green dark_gray")
+        script="#($current_dir/git.sh)"
     fi
 
     if [ $plugin = "battery" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-battery-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-battery-colors" "pink dark_gray")
       script="#($current_dir/battery.sh)"
     fi
 
     if [ $plugin = "gpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-usage-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-gpu-usage-colors" "pink dark_gray")
       script="#($current_dir/gpu_usage.sh)"
     fi
 
     if [ $plugin = "cpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-cpu-usage-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-cpu-usage-colors" "orange dark_gray")
       script="#($current_dir/cpu_info.sh)"
     fi
 
     if [ $plugin = "ram-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-ram-usage-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-ram-usage-colors" "cyan dark_gray")
       script="#($current_dir/ram_info.sh)"
     fi
 
     if [ $plugin = "network" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-network-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-network-colors" "cyan dark_gray")
       script="#($current_dir/network.sh)"
     fi
 
     if [ $plugin = "network-bandwidth" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-network-bandwidth-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-network-bandwidth-colors" "cyan dark_gray")
       tmux set-option -g status-right-length 250
       script="#($current_dir/network_bandwidth.sh)"
     fi
 
     if [ $plugin = "network-ping" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-network-ping-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@orlock-network-ping-colors" "cyan dark_gray")
       script="#($current_dir/network_ping.sh)"
     fi
 
@@ -175,12 +176,12 @@ main()
         sleep 0.01
       done
 
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-weather-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-weather-colors" "orange dark_gray")
       script="#(cat $datafile)"
     fi
 
     if [ $plugin = "time" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-time-colors" "dark_purple white")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-time-colors" "dark_purple white")
       if $show_day_month && $show_military ; then # military time and dd/mm
         script="%a %d/%m %R ${timezone} "
       elif $show_military; then # only military time
