@@ -43,7 +43,7 @@ main()
   # Handle left icon configuration
   case $show_left_icon in
     smiley)
-      left_icon="☺";;
+      left_icon="†";;
     session)
       left_icon="#S";;
     window)
@@ -195,7 +195,7 @@ main()
 
     if $show_powerline; then
       tmux set-option -ga status-right "#[fg=${!colors[0]},bg=${powerbg},nobold,nounderscore,noitalics]${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script "
-      powerbg=${!colors[0]}
+      powerbg=${!colors[1]}
     else
       tmux set-option -ga status-right "#[fg=${!colors[1]},bg=${!colors[0]}] $script "
     fi
