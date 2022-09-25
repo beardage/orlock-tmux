@@ -1,6 +1,7 @@
 # Orlock for [tmux](https://github.com/tmux/tmux/wiki)
 
 > A dark theme for [tmux](https://github.com/tmux/tmux/wiki), forked from [Dracula-tmux](https://github.com/dracula/tmux).
+> Pairs well with [orlock.nvim](https://github.com/beardage/orlock.nvim).
 
 ![Screenshot](./screenshot.png)
 
