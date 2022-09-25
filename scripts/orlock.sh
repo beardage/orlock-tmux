@@ -129,43 +129,43 @@ main()
   for plugin in "${plugins[@]}"; do
 
     if [ $plugin = "git" ]; then
-      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@orlock-git-colors" "green gray")
+      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@orlock-git-colors" "green dark_gray")
         script="#($current_dir/git.sh)"
     fi
 
     if [ $plugin = "battery" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-battery-colors" "pink gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-battery-colors" "pink dark_gray")
       script="#($current_dir/battery.sh)"
     fi
 
     if [ $plugin = "gpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-gpu-usage-colors" "pink gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-gpu-usage-colors" "pink dark_gray")
       script="#($current_dir/gpu_usage.sh)"
     fi
 
     if [ $plugin = "cpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-cpu-usage-colors" "orange gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-cpu-usage-colors" "orange dark_gray")
       script="#($current_dir/cpu_info.sh)"
     fi
 
     if [ $plugin = "ram-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-ram-usage-colors" "cyan gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-ram-usage-colors" "cyan dark_gray")
       script="#($current_dir/ram_info.sh)"
     fi
 
     if [ $plugin = "network" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-network-colors" "cyan gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-network-colors" "cyan dark_gray")
       script="#($current_dir/network.sh)"
     fi
 
     if [ $plugin = "network-bandwidth" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-network-bandwidth-colors" "cyan gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-network-bandwidth-colors" "cyan dark_gray")
       tmux set-option -g status-right-length 250
       script="#($current_dir/network_bandwidth.sh)"
     fi
 
     if [ $plugin = "network-ping" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@orlock-network-ping-colors" "cyan gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@orlock-network-ping-colors" "cyan dark_gray")
       script="#($current_dir/network_ping.sh)"
     fi
 
@@ -176,12 +176,12 @@ main()
         sleep 0.01
       done
 
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-weather-colors" "orange gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-weather-colors" "orange dark_gray")
       script="#(cat $datafile)"
     fi
 
     if [ $plugin = "time" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-time-colors" "cyan gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-time-colors" "cyan dark_gray")
       if $show_day_month && $show_military ; then # military time and dd/mm
         script="%a %d/%m %R ${timezone} "
       elif $show_military; then # only military time
@@ -194,10 +194,10 @@ main()
     fi
 
     if $show_powerline; then
-      tmux set-option -ga status-right "#[fg=${!colors[0]},bg=${powerbg},nobold,nounderscore,noitalics]${right_sep}#[fg=${!colors[2]},bg=${!colors[0]}] $script "
+      tmux set-option -ga status-right "#[fg=${!colors[0]},bg=${powerbg},nobold,nounderscore,noitalics]${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script "
       powerbg=${!colors[0]}
     else
-      tmux set-option -ga status-right "#[fg=${!colors[2]},bg=${!colors[0]}] $script "
+      tmux set-option -ga status-right "#[fg=${!colors[1]},bg=${!colors[0]}] $script "
     fi
   done
 
