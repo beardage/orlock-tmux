@@ -135,7 +135,7 @@ main()
     fi
 
     if [ $plugin = "battery" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-battery-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-battery-colors" "light_purple dark_gray")
       script="#($current_dir/battery.sh)"
     fi
 
@@ -177,7 +177,7 @@ main()
         sleep 0.01
       done
 
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-weather-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@orlock-weather-colors" "bright_cyan dark_gray")
       script="#(cat $datafile)"
     fi
 
