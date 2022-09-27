@@ -209,7 +209,7 @@ main()
     tmux set-window-option -g window-status-current-format "#[fg=${bright_cyan},bg=${gray}] #I #W${current_flags} "
   fi
 
-  tmux set-window-option -g window-status-format "#[fg=${white}] #I #W${flags}"
+  tmux set-window-option -g window-status-format "#[fg=${white}] #I #W${flags} "
   tmux set-window-option -g window-status-activity-style "bold"
   tmux set-window-option -g window-status-bell-style "bold"
 }
